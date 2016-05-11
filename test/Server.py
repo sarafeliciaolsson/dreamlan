@@ -11,9 +11,6 @@ db = MySQLdb.connect("195.178.232.16", port=3306, user="AF9250", passwd="Ankdamm
 cur = db.cursor(MySQLdb.cursors.DictCursor)
 # Här ligger alla routes
 '''
-@route('/static/<filename:path>')
-def server_static(filename):
-    return static_file(filename, root='static')
 
 @route("/")
 def index():
