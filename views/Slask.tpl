@@ -1,4 +1,4 @@
-    <!-- Contact Section -->
+<!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
