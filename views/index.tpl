@@ -35,7 +35,9 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
+
                     <i class="fa fa-play-circle"></i>  <span class="light">Festival</span> 
+
                 </a>
             </div>
 
@@ -106,8 +108,6 @@
     <script src="static/js/jquery.easing.min.js"></script>
 
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
 
     <!-- Custom Theme JavaScript -->
