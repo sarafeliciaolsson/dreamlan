@@ -21,6 +21,10 @@
     <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    
+    
+    
+    
 
 
 </head>
@@ -83,39 +87,45 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 
-                
-                
-                                <h2>Anställda</h2>
+              
+                <h2>Anställda</h2>
                     <table class="table">
                         <tr>
                             <th>Personnummer</th>
                             <th>Namn</th>
-                            <th>Telefonnummer</th>
-
-                            
+                            <th>Telefonnummer</th>  
                         </tr>
                         
-                            % for i in employees:
-                            
+                        % for i in employees:  
                         <tr>
                             <td>{{i["Nr"]}}</td>
-                            
                             <td>{{i["Name"]}}</td>
-
-                            <td>{{i["Phone"]}}</td>
-                            
+                            <td>{{i["Phone"]}}</td> 
                         </tr>
                             %end
-                        
                     </table>
-                
-                <button
-                
+
+                <form id="form" name="form" method="post" action="/admin"> 
+
+                    <table class="table">
+                        <tr>
+                            <th>Personnummer:</th>
+                            <th>Namn:</th>
+                            <th>Telefonnummer:</th>  
+                        </tr>
+
+                        <tr>
+                            <td><input type="text" class="color" name="Personnummer" id="fnamn"></td>
+                            <td><input type="text" class="color" name="Namn" id="enamn"></td>
+                            <td><input type="text" class="color" name="Telefonnummer" id="epost"></td> 
+                        </tr>
+
+                    </table>
+                    
+                    <input type="submit" name="skicka" id="skicka" value="Lägg till" />
+
+                </form>
    
-               
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
             </div>
         </div>
     </section>
