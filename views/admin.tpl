@@ -50,7 +50,7 @@
                     </li>
 
                     <li>
-                        <a class="page-scroll" href="#contact">Admin</a>
+                        <a class="page-scroll" href="/">Startsidan</a>
                     </li>
                 </ul>
             </div>
