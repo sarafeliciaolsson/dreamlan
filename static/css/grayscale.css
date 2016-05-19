@@ -36,6 +36,10 @@ p {
     line-height: 1.5;
 }
 
+.table thead th {
+   text-align: center;   
+}
+
 @media(min-width:768px) {
     p {
         margin: 0 0 35px;

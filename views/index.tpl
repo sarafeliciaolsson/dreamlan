@@ -83,112 +83,118 @@
     <section id="schema" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Spelschema</h2>
-                    <table class="table">
-                        <tr>
-                            <th>Datum</th>
-                            <th>Starttid</th>
-                            <th>Slutttid</th>
-                            <th>Scen</th>
-                            <th>Band</th>
-                            
-                        </tr>
-                        <!--% if Scen == 'Mallorcascenen':-->
-                            % for i in concerts:
-                            
-                        <tr>
-                            <td>{{i["Concert_date"]}}</td>
-                            %Begin = str(i["Begin"])[:-3]
-                            %if len(Begin) == 4:
-                            <td>0{{Begin}}</td>
-                            %else:
-                            <td>{{Begin}}</td>
+                <h2>Spelschema - Mallorcascenen</h2>
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>DATUM</th>
+                                <th>STARTTID</th>
+                                <th>SLUTTID</th>
+                                <th>SCEN</th>
+                                <th>BAND</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                    
+                        % for i in mallorca:
+                            <tr>
+                                <td>{{i["Concert_date"]}}</td>
+                                %Begin = str(i["Begin"])[:-3]
+                                %if len(Begin) == 4:
+                                <td>0{{Begin}}</td>
+                                %else:
+                                <td>{{Begin}}</td>
+                                %end
+                                %End = str(i["End"])[:-3]
+                                %if len(End) == 4:
+                                <td>0{{End}}</td>
+                                %else:
+                                <td>{{End}}</td>
+                                %end
+                                <td>{{i["Scen"]}}</td>
+                                <td>{{i["Bandet"]}}</td>
+                            </tr>
+
                             %end
-                             %End = str(i["End"])[:-3]
-                            %if len(End) == 4:
-                            <td>0{{End}}</td>
-                            %else:
-                            <td>{{End}}</td>
-                            %end
-                            <td>{{i["Scen"]}}</td>
-                            <td>{{i["Bandet"]}}</td>
-                            
-                        </tr>
-                            %end
-                        <!--%end-->
+                        </tbody>
                     </table>
-                
-                
-                    <table class="table">
-                        <tr>
-                            <th>Datum</th>
-                            <th>Starttid</th>
-                            <th>Slutttid</th>
-                            <th>Scen</th>
-                            <th>Band</th>
-                            
-                        </tr>
-                        % for i in concerts:
-                        <tr>
-                            <td>{{i["Concert_date"]}}</td>
-                            %Begin = str(i["Begin"])[:-3]
-                            %if len(Begin) == 4:
-                            <td>0{{Begin}}</td>
-                            %else:
-                            <td>{{Begin}}</td>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Spelschema - Dieseltältet</h2>
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>DATUM</th>
+                                <th>STARTTID</th>
+                                <th>SLUTTID</th>
+                                <th>SCEN</th>
+                                <th>BAND</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                    
+                            % for i in diesel:
+                            <tr>
+                                <td>{{i["Concert_date"]}}</td>
+                                %Begin = str(i["Begin"])[:-3]
+                                %if len(Begin) == 4:
+                                <td>0{{Begin}}</td>
+                                %else:
+                                <td>{{Begin}}</td>
+                                %end
+                                %End = str(i["End"])[:-3]
+                                %if len(End) == 4:
+                                <td>0{{End}}</td>
+                                %else:
+                                <td>{{End}}</td>
+                                %end
+                                <td>{{i["Scen"]}}</td>
+                                <td>{{i["Bandet"]}}</t>
+                            </tr>
                             %end
-                             %End = str(i["End"])[:-3]
-                            %if len(End) == 4:
-                            <td>0{{End}}</td>
-                            %else:
-                            <td>{{End}}</td>
-                            %end
-                            <td>{{i["Scen"]}}</td>
-                            <td>{{i["Bandet"]}}</td>
-                            
-                        </tr>
-                        %end
+                        </tbody>
                     </table>
-                
-                
-                    <table class="table">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Spelschema - Forumscenen</h2>
+                    <table class="table table-responsive">
                         <tr>
-                            <th>Datum</th>
-                            <th>Starttid</th>
-                            <th>Slutttid</th>
-                            <th>Scen</th>
-                            <th>Band</th>
+                                <th>DATUM</th>
+                                <th>STARTTID</th>
+                                <th>SLUTTID</th>
+                                <th>SCEN</th>
+                                <th>BAND</th>
                             
                         </tr>
-                        % for i in concerts:
-                        <tr>
-                            <td>{{i["Concert_date"]}}</td>
-                            %Begin = str(i["Begin"])[:-3]
-                            %if len(Begin) == 4:
-                            <td>0{{Begin}}</td>
-                            %else:
-                            <td>{{Begin}}</td>
+                    
+                            % for i in diesel:
+                                    <tr>
+                                        <td>{{i["Concert_date"]}}</td>
+                                        %Begin = str(i["Begin"])[:-3]
+                                        %if len(Begin) == 4:
+                                        <td>0{{Begin}}</td>
+                                        %else:
+                                        <td>{{Begin}}</td>
+                                        %end
+                                         %End = str(i["End"])[:-3]
+                                        %if len(End) == 4:
+                                        <td>0{{End}}</td>
+                                        %else:
+                                        <td>{{End}}</td>
+                                        %end
+                                        <td>{{i["Scen"]}}</td>
+                                        <td>{{i["Bandet"]}}</td>
+
+                                    </tr>
+
                             %end
-                             %End = str(i["End"])[:-3]
-                            %if len(End) == 4:
-                            <td>0{{End}}</td>
-                            %else:
-                            <td>{{End}}</td>
-                            %end
-                            <td>{{i["Scen"]}}</td>
-                            <td>{{i["Bandet"]}}</td>
-                            
-                        </tr>
-                        %end
                     </table>
-                
-                
-                
-                
-                
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
             </div>
         </div>
     </section>
