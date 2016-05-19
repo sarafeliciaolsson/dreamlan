@@ -15,6 +15,11 @@ def get_people():
     cur.execute(query)
     return cur.fetchall()
 
+def get_bands():
+    query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID ")
+    cur.execute(query)
+    return cur.fetchall()
+
 
 
 # Här ligger alla routes
@@ -25,7 +30,7 @@ def server_static(filename):
 
 @route("/")
 def index():
-    return template("index")
+    return template("index", concerts=get_bands())
 
 @route("/admin")
 def admin():

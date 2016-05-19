@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--- Head --->
 <head>
 
     <meta charset="utf-8">
@@ -24,6 +24,7 @@
 
 
 </head>
+<!--- /Head --->
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -56,11 +57,11 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        
+        <!-- /Navigation -->
         
         <!-- /.container -->
     </nav>
-
+<!--- PAGE ONE --->
     <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body">
@@ -68,8 +69,8 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Dreamland</h1>
-                        <p class="intro-text">A free, responsive, one page Bootstrap theme.<br>Created by Start Bootstrap.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
+                        <p class="intro-text">Välkommen till Dreamland. För att se festivalens spelschema klicka här! .</p>
+                        <a href="#schema" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -77,12 +78,114 @@
             </div>
         </div>
     </header>
-
+<!--- /PAGE ONE --->
     <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <section id="schema" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
+                <h2>Spelschema</h2>
+                    <table class="table">
+                        <tr>
+                            <th>Datum</th>
+                            <th>Starttid</th>
+                            <th>Slutttid</th>
+                            <th>Scen</th>
+                            <th>Band</th>
+                            
+                        </tr>
+                        <!--% if Scen == 'Mallorcascenen':-->
+                            % for i in concerts:
+                            
+                        <tr>
+                            <td>{{i["Concert_date"]}}</td>
+                            %Begin = str(i["Begin"])[:-3]
+                            %if len(Begin) == 4:
+                            <td>0{{Begin}}</td>
+                            %else:
+                            <td>{{Begin}}</td>
+                            %end
+                             %End = str(i["End"])[:-3]
+                            %if len(End) == 4:
+                            <td>0{{End}}</td>
+                            %else:
+                            <td>{{End}}</td>
+                            %end
+                            <td>{{i["Scen"]}}</td>
+                            <td>{{i["Bandet"]}}</td>
+                            
+                        </tr>
+                            %end
+                        <!--%end-->
+                    </table>
+                
+                
+                    <table class="table">
+                        <tr>
+                            <th>Datum</th>
+                            <th>Starttid</th>
+                            <th>Slutttid</th>
+                            <th>Scen</th>
+                            <th>Band</th>
+                            
+                        </tr>
+                        % for i in concerts:
+                        <tr>
+                            <td>{{i["Concert_date"]}}</td>
+                            %Begin = str(i["Begin"])[:-3]
+                            %if len(Begin) == 4:
+                            <td>0{{Begin}}</td>
+                            %else:
+                            <td>{{Begin}}</td>
+                            %end
+                             %End = str(i["End"])[:-3]
+                            %if len(End) == 4:
+                            <td>0{{End}}</td>
+                            %else:
+                            <td>{{End}}</td>
+                            %end
+                            <td>{{i["Scen"]}}</td>
+                            <td>{{i["Bandet"]}}</td>
+                            
+                        </tr>
+                        %end
+                    </table>
+                
+                
+                    <table class="table">
+                        <tr>
+                            <th>Datum</th>
+                            <th>Starttid</th>
+                            <th>Slutttid</th>
+                            <th>Scen</th>
+                            <th>Band</th>
+                            
+                        </tr>
+                        % for i in concerts:
+                        <tr>
+                            <td>{{i["Concert_date"]}}</td>
+                            %Begin = str(i["Begin"])[:-3]
+                            %if len(Begin) == 4:
+                            <td>0{{Begin}}</td>
+                            %else:
+                            <td>{{Begin}}</td>
+                            %end
+                             %End = str(i["End"])[:-3]
+                            %if len(End) == 4:
+                            <td>0{{End}}</td>
+                            %else:
+                            <td>{{End}}</td>
+                            %end
+                            <td>{{i["Scen"]}}</td>
+                            <td>{{i["Bandet"]}}</td>
+                            
+                        </tr>
+                        %end
+                    </table>
+                
+                
+                
+                
+                
                 <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
                 <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
                 <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
