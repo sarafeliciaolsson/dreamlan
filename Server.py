@@ -18,6 +18,7 @@ def get_people():
     return cur.fetchall()
 
 
+
 @route('/admin', method=['POST'])
 def register():
     get_people()
@@ -30,8 +31,20 @@ def register():
 
     return template("admin")
 
-def get_bands():
-    query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID ")
+
+
+def get_mallorca():
+    query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = 1 AND stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID ")
+    cur.execute(query)
+    return cur.fetchall()
+
+def get_diesel():
+    query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = 2 AND stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID ")
+    cur.execute(query)
+    return cur.fetchall()
+
+def get_forum():
+    query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = 3 AND stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID ")
     cur.execute(query)
     return cur.fetchall()
 
@@ -45,7 +58,7 @@ def server_static(filename):
 
 @route("/")
 def index():
-    return template("index", concerts=get_bands())
+    return template("index", mallorca=get_mallorca(), diesel=get_diesel(), forum=get_forum())
 
 @route("/admin")
 def admin():
