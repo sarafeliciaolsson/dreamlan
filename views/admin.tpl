@@ -102,10 +102,10 @@
                             <td>{{i["Name"]}}</td>
                             <td>{{i["Phone"]}}</td> 
                         </tr>
-                            %end
+                        %end
                     </table>
 
-                <form id="form" name="form" method="post" action="/admin"> 
+                <form id="form" name="form" method="post" action="/add_employees"> 
 
                     <table class="table">
                         <tr>
@@ -115,9 +115,9 @@
                         </tr>
 
                         <tr>
-                            <td><input type="text" class="color" name="Personnummer" id="fnamn"></td>
-                            <td><input type="text" class="color" name="Namn" id="enamn"></td>
-                            <td><input type="text" class="color" name="Telefonnummer" id="epost"></td> 
+                            <td><input type="text" class="color" name="Nr" id="fnamn" /></td>
+                            <td><input type="text" class="color" name="Name" id="enamn" /></td>
+                            <td><input type="text" class="color" name="Phone" id="epost" /></td> 
                         </tr>
 
                     </table>

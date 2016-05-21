@@ -10,27 +10,26 @@ import MySQLdb
 db = MySQLdb.connect("195.178.232.16", port=3306, user="AF9250", passwd="Ankdamm1", db="AF9250", charset='utf8');
 cur = db.cursor(MySQLdb.cursors.DictCursor)
 
-@route('/admin', method=['POST'])
-def get_people():
+
+def get_employees():
     query = ("SELECT Nr, Name, Phone FROM employees")
     cur.execute(query)
-
     return cur.fetchall()
+    
+@route('/admin')
+def admin():
+    return template('admin', employees=get_employees())
 
-
-
-@route('/admin', method=['POST'])
-def register():
-    get_people()
-
-    nr = request.forms.get('Personnummer')
-    name = request.forms.get('Namn')
-    phone = request.forms.get('Telefonnummer')
- 
-    cur.execute("INSERT INTO Employees(Nr, Name, Phone) VALUES (%s,%s,%s)")
-
-    return template("admin")
-
+@route('/add_employees', method=['POST'])
+def add_employees():
+    Nr = request.forms.get("Nr")
+    Name = request.forms.get("Name")
+    Phone = request.forms.get("Phone")
+    
+    add_employee = ("INSERT INTO employees (Nr, Name, Phone) VALUES (%s, %s, %s)")
+    cur.execute(add_employee, (Nr, Name, Phone))
+    db.commit()
+    redirect("/admin")
 
 
 def get_mallorca():
@@ -48,8 +47,6 @@ def get_forum():
     cur.execute(query)
     return cur.fetchall()
 
-
-
 # Här ligger alla routes
 
 @route('/static/<filename:path>')
@@ -60,8 +57,5 @@ def server_static(filename):
 def index():
     return template("index", mallorca=get_mallorca(), diesel=get_diesel(), forum=get_forum())
 
-@route("/admin")
-def admin():
-    return template("admin", employees=get_people())
 
 run(host='localhost', port=8080, debug=True)
