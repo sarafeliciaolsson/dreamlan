@@ -30,6 +30,18 @@ def add_employees():
     cur.execute(add_employee, (Nr, Name, Phone))
     db.commit()
     redirect("/admin")
+    
+@route('/del_employees', method=['POST'])
+def del_employees():
+
+    del_emp = request.forms.get('person')
+
+
+    query = ("DELETE FROM employees WHERE Nr = '%s'" % del_emp)
+    cur.execute(query)
+    db.commit()
+    redirect("/admin")
+    
 
 
 def get_mallorca():

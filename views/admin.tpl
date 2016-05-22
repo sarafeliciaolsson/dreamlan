@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--- HEAD --->
 <head>
 
     <meta charset="utf-8">
@@ -28,6 +28,8 @@
 
 
 </head>
+<!--- /HEAD --->
+<!--- BODY --->
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -56,6 +58,16 @@
                     <li>
                         <a class="page-scroll" href="/">Startsidan</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="#list">Anställda</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#add">Lägg till</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#delete">Ta bort</a>
+                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -73,7 +85,7 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">ADMIN!</h1>
                         <p class="intro-text">A free, responsive, one page Bootstrap theme.<br>Created by Start Bootstrap.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
+                        <a href="#list" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -82,8 +94,8 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <!-- Employees Listed Section -->
+    <section id="list" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 
@@ -104,7 +116,15 @@
                         </tr>
                         %end
                     </table>
-
+            </div>    
+        </div>
+    </section>
+    <!-- /Employees Listed Section -->
+    <!-- Adding Employees Section -->
+    <section id="add" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Lägg till Anställda</h2>
                 <form id="form" name="form" method="post" action="/add_employees"> 
 
                     <table class="table">
@@ -115,29 +135,60 @@
                         </tr>
 
                         <tr>
-                            <td><input type="text" class="color" name="Nr" id="fnamn" /></td>
-                            <td><input type="text" class="color" name="Name" id="enamn" /></td>
-                            <td><input type="text" class="color" name="Phone" id="epost" /></td> 
+                            <td><input class="form-control" type="text" class="color" name="Nr" id="fnamn" /></td>
+                            <td><input class="form-control" type="text" class="color" name="Name" id="enamn" /></td>
+                            <td><input class="form-control" type="text" class="color" name="Phone" id="epost" /></td> 
                         </tr>
 
                     </table>
                     
-                    <input type="submit" name="skicka" id="skicka" value="Lägg till" />
+                    <button type="submit" class="btn btn-default" name="skicka" id="skicka" value="Lägg till"> Lägg till </button>
 
                 </form>
-   
-            </div>
+            </div>    
         </div>
     </section>
+    <!-- /Adding Employees Section -->
+    <!-- Deteing Employees Section -->
+    <section id="delete" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Ta bort Anställda</h2>
+                    <form class="form-horizontal" id="deleteform" name="deleteform" method="post" action="/del_employees">
+                        <div class="form-group">
+                            <table class="table">
+                                <tr>
+                                    <th>Personnummer:</th>
+                                    <td>
+                                        <select class="form-control" name="person" >
+                                        %for i in employees:
+                                            <option >{{i["Nr"]}}</option>
+                                        %end                   
+                                        </select>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                            <button type="submit" class="btn btn-default">Ta bort</button>
+                        </div>
 
+                            
 
+                    </form>
+                </div>
+            </div>    
+        </div>
+    </section>
+    <!-- /Deteing Employees Section -->
     <!-- Footer -->
     <footer>
         <div class="container text-center">
             <p>Copyright &copy; Sara och Emma 2016</p>
         </div>
     </footer>
-
+    <!-- /Footer -->
+    
     <!-- jQuery -->
     <script src="static/js/jquery.js"></script>
 
@@ -152,7 +203,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="static/js/grayscale.js"></script>
-
+<!--- /BODY --->
 </body>
 
 </html>
