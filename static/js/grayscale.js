@@ -184,5 +184,4 @@ function init() {
         map: map,
         icon: image
     });
-    
 }

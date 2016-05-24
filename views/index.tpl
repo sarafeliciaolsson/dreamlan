@@ -69,15 +69,9 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Dreamland</h1>
-<<<<<<< HEAD
-                        <p class="intro-text">Välkommen till Dreamland. För att se festivalens spelschema klicka här! .</p>
+                        <p class="intro-text">Klicka här för att se spelschema</p>
                         <a href="#valjschema" class="btn btn-circle page-scroll">
-=======
-                        <p class="intro-text">
 
-                            Klicka här för att se spelschema</p>
-                        <a href="#schema" class="btn btn-circle page-scroll">
->>>>>>> ef64235fbafaa7458a9d441d786d5edfe4f9b598
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>

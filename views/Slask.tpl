@@ -143,3 +143,8 @@
             </div>
         </div>
     </section>
+
+<<<<<<< HEAD
+                        <p class="intro-text">Välkommen till Dreamland. För att se festivalens spelschema klicka här! .</p>
+                        <a href="#valjschema" class="btn btn-circle page-scroll">
+=======
