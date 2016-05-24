@@ -70,7 +70,7 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Dreamland</h1>
                         <p class="intro-text">Välkommen till Dreamland. För att se festivalens spelschema klicka här! .</p>
-                        <a href="#schema" class="btn btn-circle page-scroll">
+                        <a href="#valjschema" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -79,11 +79,44 @@
         </div>
     </header>
 <!--- /PAGE ONE --->
+        <section id="valjschema" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Visa spelschema</h2>
+                    <form class="form-horizontal" id="schemapicker" name="schemapicker" method="post" action="/valj_schema">
+                        <div class="form-group">
+                            <table class="table">
+                                <tr>
+                                    <th>Välj scen:</th>
+                                    <td>
+                                        <select class="form-control" name="scen" >
+                                        
+                                            <option value="1">Mallorcascenen</option>
+                                            <option value="2">Dieseltältet</option>
+                                            <option value="3">Forumschenen</option>
+                                                       
+                                        </select>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                            <button type="submit" class="btn btn-default">Visa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>    
+        </div>
+    </section>
+    
+    
+    
     <!-- About Section -->
+    %if schema != '':
     <section id="schema" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Spelschema - Mallorcascenen</h2>
+                <h2>Spelschema</h2>
                     <table class="table table-responsive">
                         <thead>
                             <tr>
@@ -96,8 +129,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                    
-                        % for i in mallorca:
+                        
+                        % for i in schema:
                             <tr>
                                 <td>{{i["Concert_date"]}}</td>
                                 %Begin = str(i["Begin"])[:-3]
@@ -116,88 +149,15 @@
                                 <td>{{i["Bandet"]}}</td>
                             </tr>
 
-                            %end
+                        %end
+                        
                         </tbody>
-                    </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Spelschema - Dieseltältet</h2>
-                    <table class="table table-responsive">
-                        <thead>
-                            <tr>
-                                <th>DATUM</th>
-                                <th>STARTTID</th>
-                                <th>SLUTTID</th>
-                                <th>SCEN</th>
-                                <th>BAND</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                    
-                            % for i in diesel:
-                            <tr>
-                                <td>{{i["Concert_date"]}}</td>
-                                %Begin = str(i["Begin"])[:-3]
-                                %if len(Begin) == 4:
-                                <td>0{{Begin}}</td>
-                                %else:
-                                <td>{{Begin}}</td>
-                                %end
-                                %End = str(i["End"])[:-3]
-                                %if len(End) == 4:
-                                <td>0{{End}}</td>
-                                %else:
-                                <td>{{End}}</td>
-                                %end
-                                <td>{{i["Scen"]}}</td>
-                                <td>{{i["Bandet"]}}</t>
-                            </tr>
-                            %end
-                        </tbody>
-                    </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Spelschema - Forumscenen</h2>
-                    <table class="table table-responsive">
-                        <tr>
-                                <th>DATUM</th>
-                                <th>STARTTID</th>
-                                <th>SLUTTID</th>
-                                <th>SCEN</th>
-                                <th>BAND</th>
-                            
-                        </tr>
-                    
-                            % for i in diesel:
-                                    <tr>
-                                        <td>{{i["Concert_date"]}}</td>
-                                        %Begin = str(i["Begin"])[:-3]
-                                        %if len(Begin) == 4:
-                                        <td>0{{Begin}}</td>
-                                        %else:
-                                        <td>{{Begin}}</td>
-                                        %end
-                                         %End = str(i["End"])[:-3]
-                                        %if len(End) == 4:
-                                        <td>0{{End}}</td>
-                                        %else:
-                                        <td>{{End}}</td>
-                                        %end
-                                        <td>{{i["Scen"]}}</td>
-                                        <td>{{i["Bandet"]}}</td>
-
-                                    </tr>
-
-                            %end
                     </table>
             </div>
         </div>
     </section>
+    <script>document.getElementById('schema').scrollIntoView();</script>
+    %end
 
 
     <!-- Footer -->
@@ -216,11 +176,9 @@
     <!-- Plugin JavaScript -->
     <script src="static/js/jquery.easing.min.js"></script>
 
-
-
-
     <!-- Custom Theme JavaScript -->
     <script src="static/js/grayscale.js"></script>
+
 
 </body>
 

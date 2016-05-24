@@ -33,10 +33,8 @@ def add_employees():
     
 @route('/del_employees', method=['POST'])
 def del_employees():
-
     del_emp = request.forms.get('person')
-
-
+    
     query = ("DELETE FROM employees WHERE Nr = '%s'" % del_emp)
     cur.execute(query)
     db.commit()
@@ -48,7 +46,7 @@ def get_mallorca():
     query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = 1 AND stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID ")
     cur.execute(query)
     return cur.fetchall()
-
+'''
 def get_diesel():
     query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = 2 AND stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID ")
     cur.execute(query)
@@ -59,15 +57,36 @@ def get_forum():
     cur.execute(query)
     return cur.fetchall()
 
+
+
+'''
+
+def visa_schema():
+    valt_schema = request.forms.get('scen')
+    
+    query = ("SELECT ConcertID, Concert_date, Begin, End, Stage, Band, stage.name as Scen, bands.name as Bandet FROM concerts, stage, bands WHERE stage = %s AND stage = StageID AND Band = BandID order by Concert_date, Scen, ConcertID " % valt_schema)
+    cur.execute(query)
+    return cur.fetchall()
+
+ 
+
+@route('/valj_schema', method=['POST'])
+def skicka_schema():
+    return template("index", schema = visa_schema())
+ 
+
+
 # Här ligger alla routes
 
 @route('/static/<filename:path>')
 def server_static(filename):
     return static_file(filename, root='static')
 
+
+
 @route("/")
 def index():
-    return template("index", mallorca=get_mallorca(), diesel=get_diesel(), forum=get_forum())
+    return template("index", schema = '')
 
 
 run(host='localhost', port=8080, debug=True)

@@ -163,7 +163,7 @@
                                     <td>
                                         <select class="form-control" name="person" >
                                         %for i in employees:
-                                            <option >{{i["Nr"]}}</option>
+                                            <option>{{i["Nr"]}}</option>
                                         %end                   
                                         </select>
                                     </td>
@@ -172,9 +172,6 @@
                             </table>
                             <button type="submit" class="btn btn-default">Ta bort</button>
                         </div>
-
-                            
-
                     </form>
                 </div>
             </div>    
