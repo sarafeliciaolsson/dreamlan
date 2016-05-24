@@ -83,8 +83,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">ADMIN!</h1>
-                        <p class="intro-text">A free, responsive, one page Bootstrap theme.<br>Created by Start Bootstrap.</p>
+                        <h1 class="brand-heading">ADMIN</h1>
+                        <p class="intro-text">På denna sida kan du se alla anställda, lägga till nya anställda och ta bort anställda.</p>
                         <a href="#list" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
